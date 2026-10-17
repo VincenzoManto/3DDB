@@ -1,5 +1,3 @@
-<img src="https://github.com/VincenzoManto/3DDB/raw/master/client/public/favicon.svg" style="width: 20px"/>
-
 # 3DDB - A database as a living 3D datacenter.
 
 ### > Every query is a pulse. Every table is a rack. Every user walks the floor.
@@ -129,6 +127,9 @@ shared/   TypeScript types shared by the WebSocket messages
 ```
 
 - `npm run dev`: backend and frontend together
+
+
+<img src="https://github.com/VincenzoManto/3DDB/raw/master/client/public/favicon.svg" style="width: 20px"/>
 - `npm run build`: production build of both workspaces
 - `npm run site:dev` / `npm run site:build`: the GitHub Pages site (`site/`), where the demo runs fully in the browser on PGlite
 
