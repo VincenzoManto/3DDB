@@ -1,6 +1,5 @@
 {
-  "name": "3ddb-monorepo",
-  "private": true,
+  "name": "3ddb",
   "version": "0.1.0",
   "workspaces": [
     "server",
@@ -10,7 +9,11 @@
     "dev": "concurrently -n server,client -c green,cyan \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
     "dev:server": "npm run dev --workspace=server",
     "dev:client": "npm run dev --workspace=client",
-    "build": "npm run build --workspace=server"
+    "build": "npm run build --workspace=server",
+    "bump": "npm version patch --workspace=server --no-git-tag-version",
+    "bump:minor": "npm version minor --workspace=server --no-git-tag-version",
+    "bump:major": "npm version major --workspace=server --no-git-tag-version",
+    "publish": "npm publish --workspace=server"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"

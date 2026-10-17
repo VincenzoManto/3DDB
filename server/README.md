@@ -1,4 +1,4 @@
-# Datacenter 3D
+# 3DDB - A 3D Database
 
 ```bash
 npx 3ddb --type demo
