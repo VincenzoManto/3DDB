@@ -1,4 +1,4 @@
-![logo](https://github.com/VincenzoManto/3DDB/raw/master/client/public/favicon.svg)
+<img src="https://github.com/VincenzoManto/3DDB/raw/master/client/public/favicon.svg" style="width: 20px"/>
 
 # 3DDB - A database as a living 3D datacenter.
 
