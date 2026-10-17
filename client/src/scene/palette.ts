@@ -1,0 +1,15 @@
+export const COLORS = {
+  bg: 0x111518,
+  floor: 0x2b3033,
+  floorSide: 0x1a1e20,
+  wall: 0x2a2f32,
+  wallTop: 0x4a5155,
+  furniture: 0x1b1f21,
+  furnitureLight: 0x30363a,
+  desk: 0x353b3f,
+  cabinet: 0x0f1214,
+  cabinetTop: 0x262b2e,
+  green: 0x3dff8c,
+  red: 0xff3b3b,
+  blue: 0x5aa0ff,
+} as const;

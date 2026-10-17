@@ -1,0 +1,63 @@
+{
+  "name": "3ddb",
+  "version": "0.1.0",
+  "description": "Watch a database as a living 3D datacenter: PostgreSQL, MySQL/MariaDB, SQL Server and MongoDB, live from their own profilers.",
+  "license": "MIT",
+  "author": "Vincenzo Manto",
+  "keywords": [
+    "database",
+    "visualization",
+    "3d",
+    "three.js",
+    "postgres",
+    "mysql",
+    "mariadb",
+    "sqlserver",
+    "mongodb",
+    "monitoring",
+    "profiler",
+    "cli"
+  ],
+  "type": "module",
+  "bin": {
+    "3ddb": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "public",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test src/cli/connection.test.ts",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.2.17",
+    "express": "^4.21.2",
+    "mongodb": "^6.10.0",
+    "mssql": "^11.0.1",
+    "mysql2": "^3.11.4",
+    "pg": "^8.13.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/mssql": "^9.1.5",
+    "@types/node": "^22.10.1",
+    "@types/pg": "^8.11.10",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "esbuild": "^0.24.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
