@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0b0e10" />
+  <text x="7" y="24" fill="#00d86f" font-size="7" font-family="system-ui"  font-weight="bold" style="transform: perspective(1000px) rotate3d(0,1,0,45deg) skewY(20deg); transform-origin: center">3</text>
+  <text x="8" y="13" fill="#00d86f" font-size="7" font-family="system-ui" font-weight="bold" style="transform: perspective(1000px) rotate3d(2,0,2,45deg) skewX(-20deg); transform-origin: center">D</text>
+  <text x="21" y="23.5" fill="#00d86f" font-size="7" font-family="system-ui" font-weight="bold"  style="transform: perspective(1000px) rotate3d(0,1,0,45deg) skewY(-20deg); transform-origin: center">B</text>
+  <path d="M16 5 26 10.5v11L16 27 6 21.5v-11z" fill="none" stroke="#39ff88" stroke-width="2" stroke-linejoin="round" />
+  <path d="M6 10.5 16 16l10-5.5M16 16v11" fill="none" stroke="#39ff88" stroke-width="2" stroke-linejoin="round" opacity=".55" />
+</svg>

@@ -3,6 +3,8 @@
 <p align="center"><b>A database as a living 3D datacenter.</b><br>
 Every query is a pulse. Every table is a rack. Every user walks the floor.</p>
 
+<p align="center"><a href="https://vincenzomanto.github.io/3DDB/"><b>Try it live in your browser →</b></a></p>
+
 <p align="center">
   <img src="docs/demo.gif" alt="3DDB showing a live PostgreSQL database as an isometric datacenter" width="860">
 </p>
@@ -127,6 +129,7 @@ shared/   TypeScript types shared by the WebSocket messages
 
 - `npm run dev`: backend and frontend together
 - `npm run build`: production build of both workspaces
+- `npm run site:dev` / `npm run site:build`: the GitHub Pages site (`site/`), where the demo runs fully in the browser on PGlite
 
 ## License
 

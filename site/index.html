@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3DDB · Your database as a living 3D datacenter</title>
+    <meta name="description" content="3DDB turns PostgreSQL, MySQL, MariaDB, SQL Server and MongoDB into a 3D datacenter you can walk through. Tables are racks, queries are pulses, users walk the floor. One command: npx 3ddb." />
+    <meta property="og:title" content="3DDB · Your database as a living 3D datacenter" />
+    <meta property="og:description" content="Tables are racks. Queries are pulses. Users walk the floor. npx 3ddb --type demo" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0b0e10" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./landing.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="mark" href="#top" aria-label="3DDB home"><span class="mark-cube" aria-hidden="true"></span>3DDB</a>
+      <nav class="top-nav">
+        <a href="#floor">The floor</a>
+        <a href="#install">Install</a>
+        <a href="#sources">Sources</a>
+        <a href="./demo/">Live demo</a>
+      </nav>
+      <a class="top-gh" href="https://github.com/VincenzoManto/3DDB" target="_blank" rel="noopener">GitHub ↗</a>
+    </header>
+
+    <main>
+      <!-- HERO: the real demo, running in this tab -->
+      <section class="hero" id="top">
+        <div class="hero-stage" id="stage">
+          <iframe id="scene" title="3DDB live demo" src="./demo/?embed" loading="eager" tabindex="-1"></iframe>
+        </div>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <div class="hero-status mono">
+          <span class="dot" id="status-dot"></span>
+          <span id="status-text">Booting Postgres in this tab</span>
+        </div>
+
+        <div class="hero-copy">
+          <p class="eyebrow mono">PostgreSQL · MySQL · MariaDB · SQL Server · MongoDB</p>
+          <h1 class="hero-title">
+            <span class="line"><span>Your database,</span></span>
+            <span class="line"><span>as a place you</span></span>
+            <span class="line"><span>can walk <em>through.</em></span></span>
+          </h1>
+        </div>
+
+        <div class="hero-side">
+          <p class="hero-lede">Every table is a rack. Every query is a pulse. Every user walks the floor. What you see above is a real Postgres, compiled to WASM, running in this tab.</p>
+          <button class="cmd" data-copy="npx 3ddb --type demo" type="button">
+            <span class="cmd-prompt">$</span>
+            <span class="cmd-text">npx 3ddb --type demo</span>
+            <span class="cmd-copy mono">copy</span>
+          </button>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="./demo/">Open the full demo</a>
+            <button class="btn btn-ghost" id="take-control" type="button">Take the controls</button>
+          </div>
+        </div>
+
+        <button class="hero-release mono" id="release" type="button">Release controls</button>
+      </section>
+
+      <!-- Ticker of statements the simulated users actually run -->
+      <div class="ticker mono" aria-hidden="true">
+        <div class="ticker-track" id="ticker"></div>
+      </div>
+
+      <!-- 01 -->
+      <section class="block idea" id="idea">
+        <div class="label mono"><span>01</span> The idea</div>
+        <p class="statement reveal">
+          A database is the busiest place in your stack and the one you can't see. You get a wall of numbers, a slow-query log and a hunch.
+          <span class="dim">3DDB reads the catalog and the profiler and builds a room out of them. You understand the state of the system in two seconds, then click anything to go deep.</span>
+        </p>
+        <dl class="facts reveal">
+          <div><dt class="mono">Install</dt><dd>None. <span class="mono">npx</span> runs it.</dd></div>
+          <div><dt class="mono">Signup</dt><dd>None. Runs on your machine.</dd></div>
+          <div><dt class="mono">Writes</dt><dd>Zero. Read-only by design.</dd></div>
+          <div><dt class="mono">Refresh</dt><dd>Every second, from the profiler.</dd></div>
+        </dl>
+      </section>
+
+      <!-- 02 -->
+      <section class="block floor" id="floor">
+        <div class="label mono"><span>02</span> Reading the floor</div>
+        <h2 class="h2 reveal">Nothing on screen<br />is decoration.</h2>
+        <p class="sub reveal">Each object maps to one thing in your database. Learn the map once, then read the room at a glance.</p>
+
+        <ol class="map">
+          <li class="reveal">
+            <div class="map-glyph g-zone" aria-hidden="true"></div>
+            <div class="map-scene">Zone of the central hall</div>
+            <div class="map-db">Database. The sign reads <code>DB&nbsp;name</code>.</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-rack" aria-hidden="true"></div>
+            <div class="map-scene">Rack</div>
+            <div class="map-db">Table or collection. Width is log(rows), height is log(bytes).</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-pulse" aria-hidden="true"><i class="c-read"></i><i class="c-write"></i><i class="c-ddl"></i></div>
+            <div class="map-scene">Rack pulse</div>
+            <div class="map-db">One query. <b class="t-read">Green</b> read, <b class="t-write">yellow</b> write, <b class="t-ddl">cyan</b> schema change.</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-lights" aria-hidden="true"><i></i><i class="amber"></i><i class="red"></i></div>
+            <div class="map-scene">Rack lights</div>
+            <div class="map-db">Reads and writes per second. <b class="t-amber">Amber</b> means locks held, <b class="t-red">red</b> means sessions waiting.</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-slabs" aria-hidden="true"><i class="gold"></i><i class="violet"></i><i class="blue"></i><i class="grey"></i></div>
+            <div class="map-scene">Slabs on top of a rack</div>
+            <div class="map-db">Indexes. <b class="t-gold">Gold</b> primary key, <b class="t-violet">violet</b> unique, <b class="t-blue">blue</b> plain, <b class="t-grey">grey</b> never scanned.</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-desk" aria-hidden="true"><i class="green"></i><i class="cyan"></i></div>
+            <div class="map-scene">Workstation</div>
+            <div class="map-db"><b class="t-read">Green</b> in the control room: stored procedure. <b class="t-ddl">Cyan</b> in ops and analytics: function.</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-arc" aria-hidden="true"></div>
+            <div class="map-scene">Glowing arc</div>
+            <div class="map-db">A routine call reaching the tables its code touches.</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-person" aria-hidden="true"></div>
+            <div class="map-scene">Person</div>
+            <div class="map-db">User. Visor color is the role; a dark visor means not connected. Walking to a rack means an active session there.</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-office" aria-hidden="true"></div>
+            <div class="map-scene">Office with a <code>ROLE</code> sign</div>
+            <div class="map-db">Role or group. The cage holds the superusers.</div>
+          </li>
+          <li class="reveal">
+            <div class="map-glyph g-lock" aria-hidden="true">LOCK</div>
+            <div class="map-scene">Red tag over a head</div>
+            <div class="map-db">That session is waiting on a lock. Follow the pile to find who holds it.</div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 03 -->
+      <section class="block glance" id="glance">
+        <div class="label mono"><span>03</span> What you spot in two seconds</div>
+        <div class="glance-grid">
+          <article class="reveal">
+            <span class="glance-n mono">a</span>
+            <h3>The table on fire</h3>
+            <p>Its rack flashes on every query while the rest of the floor is calm.</p>
+          </article>
+          <article class="reveal">
+            <span class="glance-n mono">b</span>
+            <h3>The lock pile-up</h3>
+            <p>Red tags stack on one rack, and you can see who is waiting for whom.</p>
+          </article>
+          <article class="reveal">
+            <span class="glance-n mono">c</span>
+            <h3>Dead weight</h3>
+            <p>Grey slabs are indexes nobody ever scanned. They cost you on every write and return nothing.</p>
+          </article>
+          <article class="reveal">
+            <span class="glance-n mono">d</span>
+            <h3>A deploy in progress</h3>
+            <p>A new table rises from the floor in a cyan ring. A dropped one dissolves in red.</p>
+          </article>
+          <article class="reveal">
+            <span class="glance-n mono">e</span>
+            <h3>Who is really working</h3>
+            <p>People walk to the tables their sessions touch. Idle accounts stay in their offices.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 04 -->
+      <section class="block install" id="install">
+        <div class="label mono"><span>04</span> Install</div>
+        <div class="install-grid">
+          <div class="install-copy">
+            <h2 class="h2 reveal">One command.<br />Zero setup.</h2>
+            <p class="sub reveal">3DDB ships as a single npm package. <code>npx</code> downloads it, starts a local server and opens a browser tab connected to your database. Close the terminal and it is gone.</p>
+            <ul class="reqs reveal mono">
+              <li><span>Node</span>18.17 or newer</li>
+              <li><span>OS</span>macOS, Linux, Windows</li>
+              <li><span>UI</span>http://127.0.0.1:4000</li>
+              <li><span>License</span>MIT</li>
+            </ul>
+          </div>
+
+          <div class="term reveal">
+            <div class="term-tabs" role="tablist" id="tabs">
+              <button role="tab" aria-selected="true" data-tab="demo">Demo</button>
+              <button role="tab" aria-selected="false" data-tab="postgres">PostgreSQL</button>
+              <button role="tab" aria-selected="false" data-tab="mysql">MySQL / MariaDB</button>
+              <button role="tab" aria-selected="false" data-tab="mssql">SQL Server</button>
+              <button role="tab" aria-selected="false" data-tab="mongo">MongoDB</button>
+            </div>
+            <div class="term-body mono" id="term"></div>
+          </div>
+        </div>
+
+        <div class="flags">
+          <h3 class="flags-title mono reveal">Every flag</h3>
+          <div class="flags-grid">
+            <dl class="flag-group reveal">
+              <dt>Connection</dt>
+              <div><code>--type &lt;type&gt;</code><span>postgres, mysql (or mariadb), mssql (or sqlserver), mongo (or mongodb), demo</span></div>
+              <div><code>--server, --host</code><span>Database host. Default: localhost</span></div>
+              <div><code>--port &lt;n&gt;</code><span>Database port. Default: the type's standard port</span></div>
+              <div><code>--user &lt;name&gt;</code><span>Default: postgres, root or sa, by type</span></div>
+              <div><code>--database, --db</code><span>Database to start from</span></div>
+              <div><code>--string, --url</code><span>A full connection string instead of the flags above. Flags given with it override its parts.</span></div>
+              <div><code>--ssl</code><span>Use TLS. Certificates are not verified, so self-signed servers work.</span></div>
+              <div><code>--capture</code><span>MySQL / MariaDB with performance_schema off: capture every statement through the general log. Restored on exit, needs SUPER.</span></div>
+            </dl>
+            <dl class="flag-group reveal">
+              <dt>Passwords</dt>
+              <div><code>--ask-password</code><span>Prompt for it. Recommended.</span></div>
+              <div><code>THREEDDB_PASSWORD</code><span>Environment variable.</span></div>
+              <div><code>THREEDDB_URL</code><span>Whole connection string from the environment.</span></div>
+              <div><code>--password &lt;p&gt;</code><span>Works, but stays in your shell history.</span></div>
+              <dt>Server</dt>
+              <div><code>--ui-port &lt;n&gt;</code><span>Port for the web UI. Default: 4000, or the next free one</span></div>
+              <div><code>--bind &lt;address&gt;</code><span>Default 127.0.0.1. The UI has no login: bind elsewhere only on networks you trust.</span></div>
+              <div><code>--no-open</code><span>Don't open the browser</span></div>
+              <div><code>-h, -v</code><span>Help, version</span></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="strings reveal">
+          <h3 class="flags-title mono">Connection strings it understands</h3>
+          <ul class="mono">
+            <li>postgres://user:pass@host:5432/db</li>
+            <li>mysql://user:pass@host:3306/db</li>
+            <li>mariadb://user:pass@host/db</li>
+            <li>mssql://user:pass@host:1433/db</li>
+            <li>Server=host,1433;Database=db;User Id=u;Password=p;</li>
+            <li>mongodb://user:pass@host:27017/db</li>
+            <li>mongodb+srv://user:pass@cluster/db</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 05 -->
+      <section class="block sources" id="sources">
+        <div class="label mono"><span>05</span> Where the data comes from</div>
+        <h2 class="h2 reveal">Your server's own<br />catalog and profiler.</h2>
+        <p class="sub reveal">Cumulative counters are read every second and turned into per-second rates and events. The catalog is re-read as soon as its digest changes, so a <code>CREATE TABLE</code> shows up live.</p>
+
+        <div class="src-table reveal" role="table">
+          <div class="src-row src-head mono" role="row"><span role="columnheader">Engine</span><span role="columnheader">Catalog</span><span role="columnheader">Profiler</span></div>
+          <div class="src-row" role="row">
+            <span role="cell">PostgreSQL</span>
+            <span role="cell" class="mono">pg_database, pg_stat_user_tables, pg_index, pg_class, pg_am, pg_proc, pg_roles, pg_auth_members</span>
+            <span role="cell" class="mono">pg_stat_user_tables, pg_stat_user_indexes, pg_locks, pg_stat_user_functions, pg_stat_activity</span>
+          </div>
+          <div class="src-row" role="row">
+            <span role="cell">MySQL / MariaDB</span>
+            <span role="cell" class="mono">information_schema.schemata, tables, statistics, routines; mysql.innodb_index_stats, mysql.user, role edges</span>
+            <span role="cell" class="mono">performance_schema (table and index io waits, statements by program, data_locks), processlist, or the general log</span>
+          </div>
+          <div class="src-row" role="row">
+            <span role="cell">SQL Server</span>
+            <span role="cell" class="mono">sys.databases, sys.tables, sys.indexes, sys.index_columns, sys.objects, sys.sql_modules, sys.server_principals</span>
+            <span role="cell" class="mono">dm_db_index_usage_stats, dm_exec_procedure_stats, dm_exec_function_stats, dm_tran_locks, dm_exec_sessions, dm_exec_requests</span>
+          </div>
+          <div class="src-row" role="row">
+            <span role="cell">MongoDB</span>
+            <span role="cell" class="mono">listDatabases, $collStats, listIndexes, system.js, usersInfo, rolesInfo</span>
+            <span role="cell" class="mono">top, $indexStats, $currentOp, dbStats</span>
+          </div>
+        </div>
+        <p class="footnote reveal">Some views need privileges (<code>pg_read_all_stats</code>, <code>VIEW SERVER STATE</code>, <code>performance_schema</code>). When one is missing, that part of the room stays empty and the rest keeps working.</p>
+      </section>
+
+      <!-- 06 -->
+      <section class="block safe" id="safe">
+        <div class="label mono"><span>06</span> Safe by design</div>
+        <div class="safe-grid">
+          <div class="reveal">
+            <h3>Read-only</h3>
+            <p>3DDB never writes to your database. The SQL console only exists in the sandboxed demo.</p>
+          </div>
+          <div class="reveal">
+            <h3>Local by default</h3>
+            <p>It listens on 127.0.0.1. Nothing leaves your machine, and there is no account to create.</p>
+          </div>
+          <div class="reveal">
+            <h3>No secrets in history</h3>
+            <p>Use <code>--ask-password</code> or an environment variable. Errors are scrubbed of passwords before they reach the UI.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <button class="foot-cmd" data-copy="npx 3ddb" type="button" aria-label="Copy npx 3ddb">
+        <span class="foot-dollar">$</span>npx 3ddb<span class="foot-caret" aria-hidden="true"></span>
+      </button>
+      <div class="foot-row mono">
+        <span>3DDB · MIT · by Vincenzo Manto</span>
+        <span class="foot-links">
+          <a href="https://github.com/VincenzoManto/3DDB" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.npmjs.com/package/3ddb" target="_blank" rel="noopener">npm</a>
+          <a href="./demo/">Live demo</a>
+        </span>
+      </div>
+    </footer>
+
+    <div class="toast mono" id="toast" role="status" aria-live="polite">Copied</div>
+
+    <script type="module" src="./landing.js"></script>
+  </body>
+</html>

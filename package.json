@@ -13,7 +13,10 @@
     "bump": "npm version patch --workspace=server --no-git-tag-version",
     "bump:minor": "npm version minor --workspace=server --no-git-tag-version",
     "bump:major": "npm version major --workspace=server --no-git-tag-version",
-    "publish": "npm publish --workspace=server"
+    "publish": "npm publish --workspace=server",
+    "site:dev": "vite --config site/vite.config.ts",
+    "site:build": "vite build --config site/vite.config.ts",
+    "site:preview": "vite preview --config site/vite.config.ts"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"
