@@ -1,12 +1,11 @@
-<h1 align="center">3d-db</h1>
+# 3DDB - A database as a living 3D datacenter.
 
-<p align="center"><b>A database as a living 3D datacenter.</b><br>
-Every query is a pulse. Every table is a rack. Every user walks the floor.</p>
+## Every query is a pulse. Every table is a rack. Every user walks the floor.
 
-<p align="center"><a href="https://vincenzomanto.github.io/3d-db/"><b>Try it live in your browser →</b></a></p>
+### Try it live in your browser →
 
 <p align="center">
-  <img src="docs/demo.gif" alt="3d-db showing a live PostgreSQL database as an isometric datacenter" width="860">
+  <img src="https://github.com/VincenzoManto/3DDB/raw/master/docs/demo.gif" alt="3d-db showing a live PostgreSQL database as an isometric datacenter" width="860">
 </p>
 
 ```bash
