@@ -1,4 +1,6 @@
-# Datacenter 3D
+# 3DDB
+
+<video src="docs/video.mp4"></video>
 
 ```bash
 npx 3ddb --type demo
