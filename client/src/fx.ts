@@ -98,7 +98,7 @@ export const FX_CONTROLS: FxControl[] = [
   { section: 'Image', key: 'vignette', label: 'Vignette', type: 'range', min: 0, max: 0.9, step: 0.01, digits: 2 },
 ];
 
-const STORAGE_KEY = '3ddb.fx.v1';
+const STORAGE_KEY = '3d-db.fx.v1';
 type Listener = (settings: FxSettings) => void;
 
 function sanitize(raw: unknown): FxSettings {

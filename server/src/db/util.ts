@@ -1,7 +1,7 @@
 import type { IndexInfo, RoleInfo, RoutineInfo, TableInfo, UserInfo } from '../../../shared/types';
 
 /** application_name / appName used by our own connections so the profiler can exclude itself. */
-export const PROFILER_APP = '3ddb-profiler';
+export const PROFILER_APP = '3d-db-profiler';
 
 export const MAX_DATABASES = 8;
 

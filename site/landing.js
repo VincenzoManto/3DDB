@@ -7,7 +7,7 @@ const frame = document.getElementById('scene');
 /* ── Hero: the demo iframe tells us when Postgres is seeded and the floor is live. ── */
 
 window.addEventListener('message', (e) => {
-  if (e.source !== frame.contentWindow || e.data !== '3ddb:ready') return;
+  if (e.source !== frame.contentWindow || e.data !== '3d-db:ready') return;
   hero.classList.add('ready');
   statusText.textContent = 'Live · Postgres running in this tab';
 });
@@ -53,39 +53,39 @@ document.addEventListener('click', (e) => {
 const TABS = {
   demo: [
     '# Embedded Postgres, 14 simulated users, 18 tables. Nothing to install.',
-    '$ npx 3ddb --type demo',
-    '> 3DDB ready on <b>http://127.0.0.1:4000</b>',
+    '$ npx 3d-db --type demo',
+    '> 3d-db ready on <b>http://127.0.0.1:4000</b>',
     '# Or start empty and pick a database from the UI',
-    '$ npx 3ddb',
+    '$ npx 3d-db',
   ],
   postgres: [
     '# Prompt for the password so it never lands in shell history',
-    '$ npx 3ddb --type postgres --server localhost --user postgres --ask-password',
+    '$ npx 3d-db --type postgres --server localhost --user postgres --ask-password',
     '# Connection string',
-    '$ npx 3ddb --string "postgres://user:pass@host:5432/app"',
+    '$ npx 3d-db --string "postgres://user:pass@host:5432/app"',
     '# Managed or self-signed TLS',
-    '$ npx 3ddb --type postgres --server db.example.com --ssl --ask-password',
+    '$ npx 3d-db --type postgres --server db.example.com --ssl --ask-password',
     '# Per-function stats need track_functions = \'pl\'; pg_read_all_stats shows other users\' sessions.',
   ],
   mysql: [
     '# MySQL or MariaDB, both through the same connector',
-    '$ npx 3ddb --type mariadb --user root --password ""',
+    '$ npx 3d-db --type mariadb --user root --password ""',
     '# performance_schema off (XAMPP, stock MariaDB)? Capture via the general log, restored on exit',
-    '$ npx 3ddb --type mariadb --user root --ask-password --capture',
-    '$ npx 3ddb --string "mysql://user:pass@host:3306/shop"',
+    '$ npx 3d-db --type mariadb --user root --ask-password --capture',
+    '$ npx 3d-db --string "mysql://user:pass@host:3306/shop"',
   ],
   mssql: [
-    '$ npx 3ddb --type sqlserver --server localhost --user sa --ask-password',
+    '$ npx 3d-db --type sqlserver --server localhost --user sa --ask-password',
     '# ADO.NET style strings work as is',
-    '$ npx 3ddb --string "Server=host,1433;Database=app;User Id=u;Password=p;"',
+    '$ npx 3d-db --string "Server=host,1433;Database=app;User Id=u;Password=p;"',
     '# Session and lock views need VIEW SERVER STATE',
   ],
   mongo: [
-    '$ npx 3ddb --string "mongodb://localhost:27017/shop"',
+    '$ npx 3d-db --string "mongodb://localhost:27017/shop"',
     '# Atlas and replica sets',
-    '$ npx 3ddb --string "mongodb+srv://user:pass@cluster0.example.net/app"',
+    '$ npx 3d-db --string "mongodb+srv://user:pass@cluster0.example.net/app"',
     '# Keep the URL out of your history',
-    '$ THREEDDB_URL="mongodb://…" npx 3ddb',
+    '$ THREEDDB_URL="mongodb://…" npx 3d-db',
   ],
 };
 

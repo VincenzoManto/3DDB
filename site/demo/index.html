@@ -70,11 +70,11 @@
     </div>
     <div id="app"></div>
     <script>
-      window.addEventListener('3ddb:ready', () => {
+      window.addEventListener('3d-db:ready', () => {
         const boot = document.getElementById('boot');
         boot.classList.add('gone');
         setTimeout(() => boot.remove(), 1000);
-        if (window.parent !== window) window.parent.postMessage('3ddb:ready', '*');
+        if (window.parent !== window) window.parent.postMessage('3d-db:ready', '*');
       });
     </script>
     <script type="module" src="../../client/src/main.ts"></script>

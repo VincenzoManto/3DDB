@@ -1,6 +1,7 @@
 {
-  "name": "3ddb",
-  "version": "0.1.0",
+  "name": "3d-db",
+  "private": true,
+  "version": "0.1.5",
   "workspaces": [
     "server",
     "client"
@@ -10,9 +11,9 @@
     "dev:server": "npm run dev --workspace=server",
     "dev:client": "npm run dev --workspace=client",
     "build": "npm run build --workspace=server",
-    "bump": "npm version patch --workspace=server --no-git-tag-version",
-    "bump:minor": "npm version minor --workspace=server --no-git-tag-version",
-    "bump:major": "npm version major --workspace=server --no-git-tag-version",
+    "bump": "npm version patch --no-git-tag-version --no-workspaces && npm version patch --workspace=server --no-git-tag-version",
+    "bump:minor": "npm version minor --no-git-tag-version --no-workspaces && npm version minor --workspace=server --no-git-tag-version",
+    "bump:major": "npm version major --no-git-tag-version --no-workspaces && npm version major --workspace=server --no-git-tag-version",
     "publish": "npm publish --workspace=server",
     "site:dev": "vite --config site/vite.config.ts",
     "site:build": "vite build --config site/vite.config.ts",

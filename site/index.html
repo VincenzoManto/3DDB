@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3DDB · Your database as a living 3D datacenter</title>
-    <meta name="description" content="3DDB turns PostgreSQL, MySQL, MariaDB, SQL Server and MongoDB into a 3D datacenter you can walk through. Tables are racks, queries are pulses, users walk the floor. One command: npx 3ddb." />
+    <meta name="description" content="3d-db turns PostgreSQL, MySQL, MariaDB, SQL Server and MongoDB into a 3D datacenter you can walk through. Tables are racks, queries are pulses, users walk the floor. One command: npx 3d-db." />
     <meta property="og:title" content="3DDB · Your database as a living 3D datacenter" />
-    <meta property="og:description" content="Tables are racks. Queries are pulses. Users walk the floor. npx 3ddb --type demo" />
+    <meta property="og:description" content="Tables are racks. Queries are pulses. Users walk the floor. npx 3d-db --type demo" />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0b0e10" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
@@ -17,21 +17,21 @@
   </head>
   <body>
     <header class="top">
-      <a class="mark" href="#top" aria-label="3DDB home"><span class="mark-cube" aria-hidden="true"></span>3DDB</a>
+      <a class="mark" href="#top" aria-label="3d-db home"><span class="mark-cube" aria-hidden="true"></span>3d-db</a>
       <nav class="top-nav">
         <a href="#floor">The floor</a>
         <a href="#install">Install</a>
         <a href="#sources">Sources</a>
         <a href="./demo/">Live demo</a>
       </nav>
-      <a class="top-gh" href="https://github.com/VincenzoManto/3DDB" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="top-gh" href="https://github.com/VincenzoManto/3d-db" target="_blank" rel="noopener">GitHub ↗</a>
     </header>
 
     <main>
       <!-- HERO: the real demo, running in this tab -->
       <section class="hero" id="top">
         <div class="hero-stage" id="stage">
-          <iframe id="scene" title="3DDB live demo" src="./demo/?embed" loading="eager" tabindex="-1"></iframe>
+          <iframe id="scene" title="3d-db live demo" src="./demo/?embed" loading="eager" tabindex="-1"></iframe>
         </div>
         <div class="hero-shade" aria-hidden="true"></div>
 
@@ -49,11 +49,13 @@
           </h1>
         </div>
 
+        <img src="./demo.gif" />
+
         <div class="hero-side">
           <p class="hero-lede">Every table is a rack. Every query is a pulse. Every user walks the floor. What you see above is a real Postgres, compiled to WASM, running in this tab.</p>
-          <button class="cmd" data-copy="npx 3ddb --type demo" type="button">
+          <button class="cmd" data-copy="npx 3d-db --type demo" type="button">
             <span class="cmd-prompt">$</span>
-            <span class="cmd-text">npx 3ddb --type demo</span>
+            <span class="cmd-text">npx 3d-db --type demo</span>
             <span class="cmd-copy mono">copy</span>
           </button>
           <div class="hero-actions">
@@ -75,7 +77,7 @@
         <div class="label mono"><span>01</span> The idea</div>
         <p class="statement reveal">
           A database is the busiest place in your stack and the one you can't see. You get a wall of numbers, a slow-query log and a hunch.
-          <span class="dim">3DDB reads the catalog and the profiler and builds a room out of them. You understand the state of the system in two seconds, then click anything to go deep.</span>
+          <span class="dim">3d-db reads the catalog and the profiler and builds a room out of them. You understand the state of the system in two seconds, then click anything to go deep.</span>
         </p>
         <dl class="facts reveal">
           <div><dt class="mono">Install</dt><dd>None. <span class="mono">npx</span> runs it.</dd></div>
@@ -83,6 +85,12 @@
           <div><dt class="mono">Writes</dt><dd>Zero. Read-only by design.</dd></div>
           <div><dt class="mono">Refresh</dt><dd>Every second, from the profiler.</dd></div>
         </dl>
+        <figure class="reel reveal">
+          <div class="reel-frame">
+            <img src="./demo.gif" alt="3d-db showing a live PostgreSQL database as an isometric datacenter" loading="lazy" decoding="async" width="1280" height="575" />
+          </div>
+          <figcaption class="mono"><span>Recorded on a real PostgreSQL</span><span>Racks pulse on every query · people walk to their sessions</span></figcaption>
+        </figure>
       </section>
 
       <!-- 02 -->
@@ -183,7 +191,7 @@
         <div class="install-grid">
           <div class="install-copy">
             <h2 class="h2 reveal">One command.<br />Zero setup.</h2>
-            <p class="sub reveal">3DDB ships as a single npm package. <code>npx</code> downloads it, starts a local server and opens a browser tab connected to your database. Close the terminal and it is gone.</p>
+            <p class="sub reveal">3d-db ships as a single npm package. <code>npx</code> downloads it, starts a local server and opens a browser tab connected to your database. Close the terminal and it is gone.</p>
             <ul class="reqs reveal mono">
               <li><span>Node</span>18.17 or newer</li>
               <li><span>OS</span>macOS, Linux, Windows</li>
@@ -285,7 +293,7 @@
         <div class="safe-grid">
           <div class="reveal">
             <h3>Read-only</h3>
-            <p>3DDB never writes to your database. The SQL console only exists in the sandboxed demo.</p>
+            <p>3d-db never writes to your database. The SQL console only exists in the sandboxed demo.</p>
           </div>
           <div class="reveal">
             <h3>Local by default</h3>
@@ -300,14 +308,14 @@
     </main>
 
     <footer class="foot">
-      <button class="foot-cmd" data-copy="npx 3ddb" type="button" aria-label="Copy npx 3ddb">
-        <span class="foot-dollar">$</span>npx 3ddb<span class="foot-caret" aria-hidden="true"></span>
+      <button class="foot-cmd" data-copy="npx 3d-db" type="button" aria-label="Copy npx 3d-db">
+        <span class="foot-dollar">$</span>npx 3d-db<span class="foot-caret" aria-hidden="true"></span>
       </button>
       <div class="foot-row mono">
         <span>3DDB · MIT · by Vincenzo Manto</span>
         <span class="foot-links">
-          <a href="https://github.com/VincenzoManto/3DDB" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.npmjs.com/package/3ddb" target="_blank" rel="noopener">npm</a>
+          <a href="https://github.com/VincenzoManto/3d-db" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.npmjs.com/package/3d-db" target="_blank" rel="noopener">npm</a>
           <a href="./demo/">Live demo</a>
         </span>
       </div>

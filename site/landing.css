@@ -1377,3 +1377,45 @@ button {
     flex-direction: column;
   }
 }
+
+/* ───────── recorded reel ───────── */
+
+.reel {
+  margin: clamp(64px, 10vh, 112px) 0 0;
+}
+
+.reel-frame {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  overflow: hidden;
+  box-shadow: 0 60px 160px -60px rgba(57, 255, 136, 0.18);
+}
+
+.reel-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.reel figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.reel figcaption span:first-child {
+  color: var(--neon);
+}
+
+@media (max-width: 860px) {
+  .reel figcaption {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

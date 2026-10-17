@@ -11,7 +11,7 @@ const localClient = resolve(here, '../client/src/ws/local.ts');
  */
 function staticDemo(): Plugin {
   return {
-    name: '3ddb-static-demo',
+    name: '3d-db-static-demo',
     enforce: 'pre',
     async resolveId(source, importer) {
       // The client talks to the in-page demo instead of the server.

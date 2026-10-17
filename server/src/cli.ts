@@ -7,12 +7,12 @@ import { parseArgs } from 'node:util';
 import { exitCleanlyOn, startServer } from './app';
 import { describeTarget, resolveTarget, TYPE_NAMES, UsageError } from './cli/connection';
 
-const HELP = `3DDB — watch a database as a living 3D datacenter
+const HELP = `3d-db — watch a database as a living 3D datacenter
 
 Usage
-  npx 3ddb --type <type> --server <host> --port <port> --user <user> --password <password> [--database <name>]
-  npx 3ddb --string "<connection string>"
-  npx 3ddb                       open the UI and pick a database there (or try the built-in demo)
+  npx 3d-db --type <type> --server <host> --port <port> --user <user> --password <password> [--database <name>]
+  npx 3d-db --string "<connection string>"
+  npx 3d-db                       open the UI and pick a database there (or try the built-in demo)
 
 Connection
   --type <type>          ${TYPE_NAMES}
@@ -44,10 +44,10 @@ Server
   -v, --version          show the version
 
 Examples
-  npx 3ddb --type postgres --server localhost --port 5432 --user postgres --ask-password
-  npx 3ddb --type mariadb --user root --password "" --capture
-  npx 3ddb --string "mongodb://localhost:27017/shop"
-  npx 3ddb --type demo
+  npx 3d-db --type postgres --server localhost --port 5432 --user postgres --ask-password
+  npx 3d-db --type mariadb --user root --password "" --capture
+  npx 3d-db --string "mongodb://localhost:27017/shop"
+  npx 3d-db --type demo
 `;
 
 const OPTIONS = {
@@ -72,7 +72,7 @@ const OPTIONS = {
 } as const;
 
 function fail(message: string, code = 2): never {
-  console.error(`3ddb: ${message}\nRun "3ddb --help" for usage.`);
+  console.error(`3d-db: ${message}\nRun "3d-db --help" for usage.`);
   process.exit(code);
 }
 
@@ -172,7 +172,7 @@ async function main(): Promise<void> {
   });
 
   const version = (createRequire(import.meta.url)('../package.json') as { version: string }).version;
-  console.log(`\n  3DDB ${version}`);
+  console.log(`\n  3d-db ${version}`);
   console.log(`  UI        ${running.url}`);
   console.log(`  Database  ${target ? describeTarget(target) : 'choose one in the UI'}`);
   if (values.bind && !['127.0.0.1', 'localhost', '::1'].includes(values.bind)) {
@@ -185,6 +185,6 @@ async function main(): Promise<void> {
 }
 
 main().catch((err: Error) => {
-  console.error(`3ddb: ${err.message}`);
+  console.error(`3d-db: ${err.message}`);
   process.exit(1);
 });

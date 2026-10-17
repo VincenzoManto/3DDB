@@ -96,8 +96,8 @@ export async function startServer(options: StartOptions): Promise<RunningServer>
 
   if (options.warmDemo) {
     warmUpMicroDb()
-      .then(() => console.log('[3ddb] demo dataset ready'))
-      .catch((err) => console.error('[3ddb] demo dataset failed to warm up', err));
+      .then(() => console.log('[3d-db] demo dataset ready'))
+      .catch((err) => console.error('[3d-db] demo dataset failed to warm up', err));
   }
 
   const shown = bind === '0.0.0.0' || bind === '::' ? 'localhost' : bind.includes(':') ? `[${bind}]` : bind;

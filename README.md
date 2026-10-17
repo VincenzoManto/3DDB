@@ -1,21 +1,21 @@
-<h1 align="center">3DDB</h1>
+<h1 align="center">3d-db</h1>
 
 <p align="center"><b>A database as a living 3D datacenter.</b><br>
 Every query is a pulse. Every table is a rack. Every user walks the floor.</p>
 
-<p align="center"><a href="https://vincenzomanto.github.io/3DDB/"><b>Try it live in your browser →</b></a></p>
+<p align="center"><a href="https://vincenzomanto.github.io/3d-db/"><b>Try it live in your browser →</b></a></p>
 
 <p align="center">
-  <img src="docs/demo.gif" alt="3DDB showing a live PostgreSQL database as an isometric datacenter" width="860">
+  <img src="docs/demo.gif" alt="3d-db showing a live PostgreSQL database as an isometric datacenter" width="860">
 </p>
 
 ```bash
-npx 3ddb --type demo
+npx 3d-db --type demo
 ```
 
 One command. No install, no signup, no config. A browser tab opens and your database is alive.
 
-PostgreSQL, MySQL / MariaDB, SQL Server and MongoDB. Read-only: 3DDB never writes to your database.
+PostgreSQL, MySQL / MariaDB, SQL Server and MongoDB. Read-only: 3d-db never writes to your database.
 
 ---
 
@@ -23,24 +23,24 @@ PostgreSQL, MySQL / MariaDB, SQL Server and MongoDB. Read-only: 3DDB never write
 
 A database is the busiest place in your stack and the one you can't see. You get a wall of numbers, a slow-query log and a hunch.
 
-3DDB turns the catalog and the profiler into a place you can look at. Hot tables glow. Locks turn red. An index nobody uses goes grey. A runaway query shows up as a crowd running to one rack. You understand the state of the system in the first two seconds, then click anything to go deep.
+3d-db turns the catalog and the profiler into a place you can look at. Hot tables glow. Locks turn red. An index nobody uses goes grey. A runaway query shows up as a crowd running to one rack. You understand the state of the system in the first two seconds, then click anything to go deep.
 
 ## Try it in 10 seconds
 
 ```bash
 # built-in demo: embedded Postgres, 14 users, 18 tables, nothing to install
-npx 3ddb --type demo
+npx 3d-db --type demo
 
 # your own database
-npx 3ddb --type postgres --server localhost --user postgres --ask-password
-npx 3ddb --type mariadb --user root --password ""
-npx 3ddb --string "mongodb://localhost:27017/shop"
+npx 3d-db --type postgres --server localhost --user postgres --ask-password
+npx 3d-db --type mariadb --user root --password ""
+npx 3d-db --string "mongodb://localhost:27017/shop"
 
 # or just run it and pick a database in the UI
-npx 3ddb
+npx 3d-db
 ```
 
-Requires Node 18.17+. Run `npx 3ddb --help` for every option.
+Requires Node 18.17+. Run `npx 3d-db --help` for every option.
 
 ## What you see
 

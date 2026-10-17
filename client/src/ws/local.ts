@@ -27,7 +27,7 @@ export class WsClient {
       await this.db.connect();
       this.poller = new Poller(this.db, this.emit);
       await this.poller.start();
-      window.dispatchEvent(new CustomEvent('3ddb:ready'));
+      window.dispatchEvent(new CustomEvent('3d-db:ready'));
     } catch (err) {
       this.emit({ type: 'error', message: (err as Error).message });
     }
@@ -49,7 +49,7 @@ export class WsClient {
     } else if (msg.type === 'scan') {
       this.emit({ type: 'scanResult', results: [] });
     } else if (msg.type === 'connect' && msg.target.kind !== 'demo') {
-      this.emit({ type: 'error', message: 'This page can only run the demo. Run "npx 3ddb" locally to connect a real database.' });
+      this.emit({ type: 'error', message: 'This page can only run the demo. Run "npx 3d-db" locally to connect a real database.' });
     } else if (msg.type === 'capture') {
       this.emit({ type: 'error', message: 'Statement capture needs a real MySQL / MariaDB server' });
     }

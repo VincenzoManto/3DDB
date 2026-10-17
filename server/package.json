@@ -1,6 +1,6 @@
 {
-  "name": "3ddb",
-  "version": "0.1.0",
+  "name": "3d-db",
+  "version": "0.1.5",
   "description": "Watch a database as a living 3D datacenter: PostgreSQL, MySQL/MariaDB, SQL Server and MongoDB, live from their own profilers.",
   "license": "MIT",
   "author": "Vincenzo Manto",
@@ -20,7 +20,7 @@
   ],
   "type": "module",
   "bin": {
-    "3ddb": "dist/cli.js"
+    "3d-db": "dist/cli.js"
   },
   "files": [
     "dist",

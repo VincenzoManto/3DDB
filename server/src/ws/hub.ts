@@ -63,7 +63,7 @@ async function connectSession(session: ClientSession, target: ConnectionTarget, 
     }
   } catch (err) {
     const message = redact((err as Error).message, target);
-    console.error(`[3ddb] connection failed: ${message}`);
+    console.error(`[3d-db] connection failed: ${message}`);
     send({ type: 'error', message });
   }
 }
